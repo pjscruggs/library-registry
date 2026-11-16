@@ -34,7 +34,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Initialize markdownlint-cli problem matcher
         uses: xt0rted/markdownlint-problem-matcher@v3
@@ -50,13 +50,13 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Determine whether only modified files should be checked
         id: check-modified
         if: github.event_name == 'pull_request'
         run: |
-          echo "::set-output name=value::yes"
+          echo "value=yes" >> "$GITHUB_OUTPUT"
 
       - name: Check links
         uses: gaurav-nelson/github-action-markdown-link-check@v1
